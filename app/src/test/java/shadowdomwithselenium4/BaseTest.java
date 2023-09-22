@@ -9,7 +9,7 @@ import static setup.DriverManager.quitDriver;
 public class BaseTest {
 
     @BeforeAll
-    @Parameters({"browser"})
+    //@Parameters({"browser"})
     public void setupTest (final String browser) {
         createDriver(browser);
     }
