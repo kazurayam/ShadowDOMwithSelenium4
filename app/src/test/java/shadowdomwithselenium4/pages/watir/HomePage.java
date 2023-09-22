@@ -6,8 +6,6 @@ import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import static setup.DriverManager.getDriver;
-
 /**
  * @author Faisal Khatri
  * @since 8/19/2022

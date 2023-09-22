@@ -6,8 +6,6 @@ import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import static setup.DriverManager.getDriver;
-
 public class DownloadPage {
 
     public SearchContext expandRootElement (WebDriver driver, WebElement element) {

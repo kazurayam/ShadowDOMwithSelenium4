@@ -3,8 +3,6 @@ package shadowdomwithselenium4.pages.theinternet;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import static setup.DriverManager.getDriver;
-
 public class ShadowDom {
 
     public String shadowTextOne(WebDriver driver) {

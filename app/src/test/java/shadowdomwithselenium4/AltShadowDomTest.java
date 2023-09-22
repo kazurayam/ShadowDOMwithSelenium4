@@ -4,7 +4,6 @@ import io.github.bonigarcia.seljup.BrowserBuilder;
 import io.github.bonigarcia.seljup.BrowsersTemplate.Browser;
 import io.github.bonigarcia.seljup.SeleniumJupiter;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestTemplate;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.openqa.selenium.WebDriver;
@@ -14,7 +13,6 @@ import shadowdomwithselenium4.pages.watir.HomePage;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static setup.DriverManager.getDriver;
 
 public class AltShadowDomTest {
 
@@ -39,7 +37,7 @@ public class AltShadowDomTest {
     public void testShadowDom(WebDriver driver) {
         driver.get("https://the-internet.herokuapp.com/shadowdom");
         final ShadowDom shadowDom = new ShadowDom ();
-        assertEquals ("Let's have some different text!", shadowDom.shadowTextOne(driver));
+        assertEquals("Let's have some different text!", shadowDom.shadowTextOne(driver));
         System.out.println (shadowDom.shadowTextTwo(driver));
     }
 
@@ -47,9 +45,9 @@ public class AltShadowDomTest {
     public void testShadowDomRootOnChromeDownloadPage(WebDriver driver) {
         driver.get("chrome://downloads/");
         final DownloadPage downloadPage = new DownloadPage ();
-        assertEquals ("ダウンロード", downloadPage.downloadPageHeaderText(driver));
-        assertEquals ("ダウンロード", downloadPage.googleDownloadPageHeaderText(driver));
-        assertEquals ("ダウンロード", downloadPage.pageHeaderTextUsingJScripExecutor(driver));
+        assertEquals("ダウンロード", downloadPage.downloadPageHeaderText(driver));
+        assertEquals("ダウンロード", downloadPage.googleDownloadPageHeaderText(driver));
+        assertEquals("ダウンロード", downloadPage.pageHeaderTextUsingJScripExecutor(driver));
     }
 
     @TestTemplate
