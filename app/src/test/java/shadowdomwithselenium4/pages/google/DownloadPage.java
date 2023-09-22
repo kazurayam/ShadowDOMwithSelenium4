@@ -8,13 +8,6 @@ import org.openqa.selenium.WebElement;
 
 public class DownloadPage {
 
-    public SearchContext expandRootElement (WebDriver driver, WebElement element) {
-        JavascriptExecutor je = (JavascriptExecutor)driver;
-        Object result = je.executeScript("return arguments[0].shadowRoot", element);
-        SearchContext shadowRoot = (SearchContext)result;
-        return shadowRoot;
-    }
-
     public String pageHeaderTextUsingJScripExecutor (WebDriver driver) {
         WebElement downloadsManagerTag = driver.findElement(By.tagName("downloads-manager"));
         SearchContext shadowRoot1 = expandRootElement(driver, downloadsManagerTag);
@@ -25,19 +18,27 @@ public class DownloadPage {
         return shadowRoot3.findElement (By.cssSelector("#leftSpacer > h1")).getText ();
     }
 
+    public SearchContext expandRootElement (WebDriver driver, WebElement element) {
+        JavascriptExecutor je = (JavascriptExecutor)driver;
+        Object result = je.executeScript("return arguments[0].shadowRoot", element);
+        SearchContext shadowRoot = (SearchContext)result;
+        return shadowRoot;
+    }
+
     public String downloadPageHeaderText (WebDriver driver) {
-        WebElement downloadsManager = driver.findElement(By.tagName("downloads-manager"));
-        SearchContext shadowRoot1 = downloadsManager.getShadowRoot();
-        WebElement toolbar = shadowRoot1.findElement(By.id("toolbar"));
-        SearchContext shadowRoot2 = toolbar.getShadowRoot ();
-        WebElement crToolbar = shadowRoot2.findElement(By.cssSelector ("cr-toolbar"));
-        SearchContext shadowRoot3 = crToolbar.getShadowRoot ();
-        WebElement downloadsHeader = shadowRoot3.findElement(By.cssSelector ("#leftSpacer > h1"));
+        WebElement downloadsHeader = driver
+                .findElement(By.tagName("downloads-manager"))
+                .getShadowRoot()
+                .findElement(By.id("toolbar"))
+                .getShadowRoot()
+                .findElement(By.cssSelector("cr-toolbar"))
+                .getShadowRoot()
+                .findElement(By.cssSelector("#leftSpacer > h1"));
         return downloadsHeader.getText ();
     }
 
     public String googleDownloadPageHeaderText (WebDriver driver) {
-        WebElement pageHeader = driver.findElement (By.tagName ("downloads-manager"))
+        WebElement pageHeader = driver.findElement(By.tagName("downloads-manager"))
                 .getShadowRoot()
                 .findElement(By.id("toolbar"))
                 .getShadowRoot()
