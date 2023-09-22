@@ -14,7 +14,7 @@ import shadowdomwithselenium4.pages.watir.HomePage;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class AltShadowDomTest {
+public class ShadowDOMTests {
 
     @RegisterExtension
     static SeleniumJupiter seleniumJupiter = new SeleniumJupiter();
