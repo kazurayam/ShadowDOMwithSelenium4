@@ -42,7 +42,7 @@ public class HomePage {
         return nestedText.getText();
     }
 
-    public String getNestedTextUsingJSExecutor (WebDriver driver) {
+    public String getNestedTextUsingJSExecutor(WebDriver driver) {
         WebElement shadowHost = driver.findElement(By.id("shadow_host"));
         SearchContext shadowRootOne = expandRootElement(driver, shadowHost);
         WebElement nestedShadowHost = shadowRootOne.findElement(By.cssSelector ("#nested_shadow_host"));

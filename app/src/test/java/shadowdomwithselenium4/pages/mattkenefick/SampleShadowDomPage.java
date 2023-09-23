@@ -1,6 +1,8 @@
 package shadowdomwithselenium4.pages.mattkenefick;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -19,5 +21,18 @@ public class SampleShadowDomPage {
                 .getShadowRoot()
                 .findElement(By.cssSelector("label > h3"));
         return h3.getText();
+    }
+
+    public String getHeaderTextUsingJSExecutor(WebDriver driver) {
+        WebElement shadowHost = driver.findElement(By.cssSelector("main > my-input"));
+        SearchContext shadowRoot1 = expandRootElement(driver, shadowHost);
+        WebElement h3 = shadowRoot1.findElement(By.cssSelector("label > h3"));
+        return h3.getText();
+    }
+
+    public SearchContext expandRootElement (WebDriver driver, final WebElement element) {
+        JavascriptExecutor je = (JavascriptExecutor)driver;
+        Object result = je.executeScript ("return arguments[0].shadowRoot", element);
+        return (SearchContext)result;
     }
 }

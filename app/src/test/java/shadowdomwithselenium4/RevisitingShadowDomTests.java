@@ -35,6 +35,15 @@ public class RevisitingShadowDomTests {
     void testGetHeaderText(WebDriver driver) {
         driver.get("https://mattkenefick.github.io/sample-shadow-dom/");
         SampleShadowDomPage page = new SampleShadowDomPage();
-        assertEquals("Header lorem ipsum", page.getHeaderText(driver));
+        assertEquals("Header lorem ipsum",
+                page.getHeaderText(driver));
+    }
+
+    @TestTemplate
+    void testGetHeaderTextUsingJSExecutor(WebDriver driver) {
+        driver.get("https://mattkenefick.github.io/sample-shadow-dom/");
+        SampleShadowDomPage page = new SampleShadowDomPage();
+        assertEquals("Header lorem ipsum",
+                page.getHeaderTextUsingJSExecutor(driver));
     }
 }
