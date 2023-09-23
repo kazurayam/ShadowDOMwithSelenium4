@@ -53,7 +53,7 @@ public class ShadowDOMTests {
     @TestTemplate
     public void testShadowDomWatir(WebDriver driver) {
         driver.get("http://watir.com/examples/shadow_dom.html");
-        final HomePage homePage = new HomePage();
+        HomePage homePage = new HomePage();
         // assertEquals ("some text", homePage.getSomeText());
         assertEquals("some text", homePage.getShadowDomText(driver));
         assertEquals("nested text", homePage.getNestedShadowText(driver));
