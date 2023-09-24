@@ -1,4 +1,4 @@
-package shadowdomwithselenium4.pages.google;
+package shadowdomwithselenium4.pages.googlechrome;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;

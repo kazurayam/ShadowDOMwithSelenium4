@@ -7,7 +7,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.TestTemplate;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.openqa.selenium.WebDriver;
-import shadowdomwithselenium4.pages.google.DownloadPage;
 import shadowdomwithselenium4.pages.theinternet.ShadowDom;
 import shadowdomwithselenium4.pages.watir.HomePage;
 
@@ -41,14 +40,6 @@ public class ShadowDOMTests {
         System.out.println (shadowDom.shadowTextTwo(driver));
     }
 
-    @TestTemplate
-    public void testShadowDomRootOnChromeDownloadPage(WebDriver driver) {
-        driver.get("chrome://downloads/");
-        final DownloadPage downloadPage = new DownloadPage ();
-        assertEquals("ダウンロード", downloadPage.downloadPageHeaderText(driver));
-        assertEquals("ダウンロード", downloadPage.googleDownloadPageHeaderText(driver));
-        assertEquals("ダウンロード", downloadPage.pageHeaderTextUsingJScripExecutor(driver));
-    }
 
     @TestTemplate
     public void testShadowDomWatir(WebDriver driver) {
