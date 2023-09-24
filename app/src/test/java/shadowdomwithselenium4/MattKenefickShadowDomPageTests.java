@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * by Matt Kenefick, which is explained in his articlee
  * https://medium.com/@mattkenefick/revisiting-shadow-dom-nested-items-dynamic-templates-shadowroot-ea5f50d72c23
  */
-public class MattKenefickShadowDomTests {
+public class MattKenefickShadowDomPageTests {
 
     @RegisterExtension
     static SeleniumJupiter seleniumJupiter = new SeleniumJupiter();

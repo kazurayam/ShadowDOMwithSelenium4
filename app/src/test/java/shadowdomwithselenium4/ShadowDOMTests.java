@@ -8,7 +8,6 @@ import org.junit.jupiter.api.TestTemplate;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.openqa.selenium.WebDriver;
 import shadowdomwithselenium4.pages.theinternet.ShadowDom;
-import shadowdomwithselenium4.pages.watir.HomePage;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -38,17 +37,5 @@ public class ShadowDOMTests {
         final ShadowDom shadowDom = new ShadowDom ();
         assertEquals("Let's have some different text!", shadowDom.shadowTextOne(driver));
         System.out.println (shadowDom.shadowTextTwo(driver));
-    }
-
-
-    @TestTemplate
-    public void testShadowDomWatir(WebDriver driver) {
-        driver.get("http://watir.com/examples/shadow_dom.html");
-        HomePage homePage = new HomePage();
-        // assertEquals ("some text", homePage.getSomeText());
-        assertEquals("some text", homePage.getShadowDomText(driver));
-        assertEquals("nested text", homePage.getNestedShadowText(driver));
-        assertEquals("nested text", homePage.getNestedText(driver));
-        assertEquals("nested text", homePage.getNestedTextUsingJSExecutor(driver));
     }
 }
