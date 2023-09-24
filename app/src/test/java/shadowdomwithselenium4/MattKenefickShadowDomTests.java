@@ -7,18 +7,17 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.TestTemplate;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.openqa.selenium.WebDriver;
-import shadowdomwithselenium4.pages.google.DownloadPage;
 import shadowdomwithselenium4.pages.mattkenefick.SampleShadowDomPage;
-import shadowdomwithselenium4.pages.theinternet.ShadowDom;
-import shadowdomwithselenium4.pages.watir.HomePage;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
+ * Testing https://mattkenefick.github.io/sample-shadow-dom/
+ * by Matt Kenefick, which is explained in his articlee
  * https://medium.com/@mattkenefick/revisiting-shadow-dom-nested-items-dynamic-templates-shadowroot-ea5f50d72c23
  */
-public class RevisitingShadowDomTests {
+public class MattKenefickShadowDomTests {
 
     @RegisterExtension
     static SeleniumJupiter seleniumJupiter = new SeleniumJupiter();
@@ -35,15 +34,24 @@ public class RevisitingShadowDomTests {
     void testGetHeaderText(WebDriver driver) {
         driver.get("https://mattkenefick.github.io/sample-shadow-dom/");
         SampleShadowDomPage page = new SampleShadowDomPage();
-        assertEquals("Header lorem ipsum",
-                page.getHeaderText(driver));
+        String actual = page.getHeaderText(driver);
+        assertEquals("Header lorem ipsum", actual);
     }
 
     @TestTemplate
     void testGetHeaderTextUsingJSExecutor(WebDriver driver) {
         driver.get("https://mattkenefick.github.io/sample-shadow-dom/");
         SampleShadowDomPage page = new SampleShadowDomPage();
-        assertEquals("Header lorem ipsum",
-                page.getHeaderTextUsingJSExecutor(driver));
+        String actual = page.getHeaderTextUsingJSExecutor(driver);
+        assertEquals("Header lorem ipsum", actual);
     }
+
+    @TestTemplate
+    void testGetNestedHeaderText(WebDriver driver) {
+        driver.get("https://mattkenefick.github.io/sample-shadow-dom/");
+        SampleShadowDomPage page = new SampleShadowDomPage();
+        String actual = page.getHeaderText(driver);
+        assertEquals("Header lorem ipsum", actual);
+    }
+
 }

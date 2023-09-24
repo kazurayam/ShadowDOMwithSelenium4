@@ -35,4 +35,13 @@ public class SampleShadowDomPage {
         Object result = je.executeScript ("return arguments[0].shadowRoot", element);
         return (SearchContext)result;
     }
+
+    public String getNestedHeaderText(WebDriver driver) {
+        WebElement h3 = driver.findElement(By.cssSelector("main > my-form"))
+                .getShadowRoot()
+                .findElement(By.cssSelector("my-input"))
+                .getShadowRoot()
+                .findElement(By.cssSelector("label > h3"));
+        return h3.getText();
+    }
 }
