@@ -9,7 +9,6 @@ import org.junit.jupiter.api.extension.RegisterExtension;
 import org.openqa.selenium.WebDriver;
 import shadowdomwithselenium4.pages.mattkenefick.SampleShadowDomPage;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
@@ -24,7 +23,8 @@ public class MattKenefickShadowDomPageTests {
 
     @BeforeAll
     static void setup() {
-        Browser chrome = BrowserBuilder.chrome().build();
+        String[] args = {"--headless"};
+        Browser chrome = BrowserBuilder.chrome().arguments(args).build();
         seleniumJupiter.addBrowsers(chrome);
         //Browser firefox = BrowserBuilder.firefox().build();
         //seleniumJupiter.addBrowsers(firefox);
