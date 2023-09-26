@@ -21,8 +21,6 @@ public class GoogleChromeDownloadPageTests {
     static void setup() {
         Browser chrome = BrowserBuilder.chrome().build();
         seleniumJupiter.addBrowsers(chrome);
-        //Browser firefox = BrowserBuilder.firefox().build();
-        //seleniumJupiter.addBrowsers(firefox);
     }
 
     @TestTemplate

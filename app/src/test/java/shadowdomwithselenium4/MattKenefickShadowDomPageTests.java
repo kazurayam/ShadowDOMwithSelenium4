@@ -31,26 +31,42 @@ public class MattKenefickShadowDomPageTests {
     }
 
     @TestTemplate
-    void testGetHeaderText(WebDriver driver) {
+    void testGetHeader(WebDriver driver) {
         driver.get("https://mattkenefick.github.io/sample-shadow-dom/");
         SampleShadowDomPage page = new SampleShadowDomPage();
-        String actual = page.getHeaderText(driver);
+        String actual = page.getHeader(driver);
         assertEquals("Header lorem ipsum", actual);
     }
 
     @TestTemplate
-    void testGetHeaderTextUsingJSExecutor(WebDriver driver) {
+    void testGetHeaderUsingJSExecutor(WebDriver driver) {
         driver.get("https://mattkenefick.github.io/sample-shadow-dom/");
         SampleShadowDomPage page = new SampleShadowDomPage();
-        String actual = page.getHeaderTextUsingJSExecutor(driver);
+        String actual = page.getHeaderUsingJSExecutor(driver);
         assertEquals("Header lorem ipsum", actual);
     }
 
     @TestTemplate
-    void testGetNestedHeaderText(WebDriver driver) {
+    void testGetFormLegend(WebDriver driver) {
         driver.get("https://mattkenefick.github.io/sample-shadow-dom/");
         SampleShadowDomPage page = new SampleShadowDomPage();
-        String actual = page.getHeaderText(driver);
+        String actual = page.getFormLegend(driver);
+        assertEquals("MY FORM ELEMENT", actual);
+    }
+
+    @TestTemplate
+    void testGetNestedHeader(WebDriver driver) throws InterruptedException {
+        driver.get("https://mattkenefick.github.io/sample-shadow-dom/");
+        SampleShadowDomPage page = new SampleShadowDomPage();
+        String actual = page.getNestedHeader(driver);
+        assertEquals("Header lorem ipsum", actual);
+    }
+
+    @TestTemplate
+    void testGetNestedHeaderUsingJSExecutor(WebDriver driver) {
+        driver.get("https://mattkenefick.github.io/sample-shadow-dom/");
+        SampleShadowDomPage page = new SampleShadowDomPage();
+        String actual = page.getNestedHeaderUsingJSExecutor(driver);
         assertEquals("Header lorem ipsum", actual);
     }
 

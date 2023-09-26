@@ -16,17 +16,42 @@ import org.openqa.selenium.WebElement;
  */
 public class SampleShadowDomPage {
 
-    public String getHeaderText(WebDriver driver) {
+    public String getHeader(WebDriver driver) {
         WebElement h3 = driver.findElement(By.cssSelector("main > my-input"))
                 .getShadowRoot()
                 .findElement(By.cssSelector("label > h3"));
         return h3.getText();
     }
 
-    public String getHeaderTextUsingJSExecutor(WebDriver driver) {
-        WebElement shadowHost = driver.findElement(By.cssSelector("main > my-input"));
-        SearchContext shadowRoot1 = expandRootElement(driver, shadowHost);
+    public String getHeaderUsingJSExecutor(WebDriver driver) {
+        WebElement shadowHost1 = driver.findElement(By.cssSelector("main > my-input"));
+        SearchContext shadowRoot1 = expandRootElement(driver, shadowHost1);
         WebElement h3 = shadowRoot1.findElement(By.cssSelector("label > h3"));
+        return h3.getText();
+    }
+
+    public String getFormLegend(WebDriver driver) {
+        WebElement legend = driver.findElement(By.cssSelector("main > my-form"))
+                .getShadowRoot()
+                .findElement(By.cssSelector("form > fieldset > legend"));
+        return legend.getText();
+    }
+
+    public String getNestedHeader(WebDriver driver) {
+        WebElement h3 = driver.findElement(By.cssSelector("main > my-form"))
+                .getShadowRoot()
+                .findElement(By.cssSelector("form > fieldset > my-input"))
+                .getShadowRoot()
+                .findElement(By.cssSelector("label > h3"));
+        return h3.getText();
+    }
+
+    public String getNestedHeaderUsingJSExecutor(WebDriver driver) {
+        WebElement shadowHost1 = driver.findElement(By.cssSelector("main > my-form"));
+        SearchContext shadowRoot1 = expandRootElement(driver, shadowHost1);
+        WebElement shadowHost2 = shadowRoot1.findElement(By.cssSelector("form > fieldset > my-input"));
+        SearchContext shadowRoot2 = expandRootElement(driver, shadowHost2);
+        WebElement h3 = shadowRoot2.findElement(By.cssSelector("label > h3"));
         return h3.getText();
     }
 
@@ -36,12 +61,5 @@ public class SampleShadowDomPage {
         return (SearchContext)result;
     }
 
-    public String getNestedHeaderText(WebDriver driver) {
-        WebElement h3 = driver.findElement(By.cssSelector("main > my-form"))
-                .getShadowRoot()
-                .findElement(By.cssSelector("my-input"))
-                .getShadowRoot()
-                .findElement(By.cssSelector("label > h3"));
-        return h3.getText();
-    }
+
 }
