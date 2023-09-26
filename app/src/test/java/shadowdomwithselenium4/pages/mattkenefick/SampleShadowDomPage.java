@@ -30,7 +30,7 @@ public class SampleShadowDomPage {
         return h3.getText();
     }
 
-    public String getFormLegend(WebDriver driver) {
+    public String getFieldsetLegend(WebDriver driver) {
         WebElement legend = driver.findElement(By.cssSelector("main > my-form"))
                 .getShadowRoot()
                 .findElement(By.cssSelector("form > fieldset > legend"));
@@ -40,7 +40,7 @@ public class SampleShadowDomPage {
     public String getNestedHeader(WebDriver driver) {
         WebElement h3 = driver.findElement(By.cssSelector("main > my-form"))
                 .getShadowRoot()
-                .findElement(By.cssSelector("form > fieldset > my-input"))
+                .findElement(By.cssSelector("form > fieldset > slot > my-input"))
                 .getShadowRoot()
                 .findElement(By.cssSelector("label > h3"));
         return h3.getText();

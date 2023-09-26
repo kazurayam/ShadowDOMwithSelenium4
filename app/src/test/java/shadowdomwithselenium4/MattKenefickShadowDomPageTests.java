@@ -47,10 +47,10 @@ public class MattKenefickShadowDomPageTests {
     }
 
     @TestTemplate
-    void testGetFormLegend(WebDriver driver) {
+    void testGetFieldsetLegend(WebDriver driver) {
         driver.get("https://mattkenefick.github.io/sample-shadow-dom/");
         SampleShadowDomPage page = new SampleShadowDomPage();
-        String actual = page.getFormLegend(driver);
+        String actual = page.getFieldsetLegend(driver);
         assertEquals("MY FORM ELEMENT", actual);
     }
 
