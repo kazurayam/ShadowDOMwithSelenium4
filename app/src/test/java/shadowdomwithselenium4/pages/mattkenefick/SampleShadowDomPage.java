@@ -40,9 +40,9 @@ public class SampleShadowDomPage {
     public String getNestedHeader(WebDriver driver) {
         WebElement h3 = driver.findElement(By.cssSelector("main > my-form"))
                 .getShadowRoot()
-                .findElement(By.cssSelector("form > fieldset > slot > my-input"))
+                .findElement(By.cssSelector("my-input"))
                 .getShadowRoot()
-                .findElement(By.cssSelector("label > h3"));
+                .findElement(By.cssSelector("label.my-input > h3"));
         return h3.getText();
     }
 

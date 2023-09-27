@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--
+    "How can I access the (un-named) slot content in web components"
+    https://stackoverflow.com/questions/67068455/how-can-i-access-the-unamed-slot-content-in-web-components
+-->
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>slot example</title>
+</head>
+<body>
+<h1>HTML Slot Element Example</h1>
+<my-option><b>I need to access this text node</b></my-option>
+
+<script>
+    customElements.define('my-option', class extends HTMLElement {
+        constructor() {
+            super(); // sets and returns this scope
+            let shadow = this.attachShadow({mode: 'open'});
+            shadow.innerHTML = '<slot></slot>';
+        }
+        connectedCallback() {
+            let slots = this.shadowRoot.querySelectorAll('slot');
+            console.log(slots);
+            slots[0].addEventListener('slotchange', function(e) {
+                let nodes = slots[0].assignedNodes();
+                console.log(nodes);
+            });
+        }
+    });
+</script>
+</body>
+</html>
+
+
